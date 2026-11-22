@@ -1,0 +1,15 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Release\\Inkly.obj",
+            "outputs": [
+                "x64\\Release\\Inkly.cpp.obj.dt.module.json",
+                "x64\\Release\\Inkly.cpp.obj.dt.d.json",
+                "x64\\Release\\Inkly.pch"
+            ],
+            "requires": []
+        }
+    ]
+}
