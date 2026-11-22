@@ -1,0 +1,9 @@
+# v1.1.0
+1. Dodano import oraz eksport notatek
+2. Nawiązano typ .ink do aplikacji Inkly
+3. Dodano więcej czcionek
+4. Dodano możliwość wgrywania własnych czcionek
+5. Dodano zapisywanie plików
+6. Dodano otwieranie plików (np. .md, .txt)
+7. Poprawiono szatę graficzną
+### Podpisał Piotr, dnia 22.11.2026 o godz. 17.13
