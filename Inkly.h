@@ -14,9 +14,13 @@ class Inkly : public QMainWindow
 public:
     Inkly(QWidget* parent = nullptr);
     ~Inkly();
-
+    void importFromFile(const QString& path, QWidget* parent);
+    void bringToFront();
+    void openExternal(const QString& path);
 protected:
     void closeEvent(QCloseEvent* event) override;
+    void dragEnterEvent(QDragEnterEvent* e) override;
+    void dropEvent(QDropEvent* e) override;
 
 private slots:
     void newNote();
@@ -24,11 +28,17 @@ private slots:
     void refreshList();
     void flushSave();
     void openSettings();
+    void openFiles();
 
 private:
     int  indexOfId(const QString& id) const;
     void applyTheme();
     void applySettings();
+	void importFiles(const QStringList& files);
+    void saveToFile(bool askPath);
+    void updateItemLabel(const Note& n);
+    void exportNotes(QWidget* parent);
+    void importNotes(QWidget* parent);
 
     Ui::InklyClass ui;
     QLineEdit* searchEdit = nullptr;

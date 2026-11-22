@@ -63,6 +63,9 @@
     <ClInclude Include="SettingsDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Fonts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Inkly.rc">

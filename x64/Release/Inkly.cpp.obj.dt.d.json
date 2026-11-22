@@ -876,7 +876,10 @@
             "c:\\users\\admin\\source\\repos\\inkly\\inkly\\theme.h",
             "c:\\users\\admin\\source\\repos\\inkly\\inkly\\stdafx.h",
             "c:\\users\\admin\\source\\repos\\inkly\\inkly\\settingsdialog.h",
-            "c:\\users\\admin\\source\\repos\\inkly\\inkly\\stdafx.h"
+            "c:\\users\\admin\\source\\repos\\inkly\\inkly\\stdafx.h",
+            "c:\\users\\admin\\source\\repos\\inkly\\inkly\\fonts.h",
+            "c:\\users\\admin\\source\\repos\\inkly\\inkly\\stdafx.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtcore\\qt"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

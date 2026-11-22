@@ -8,7 +8,6 @@ struct AppSettings {
     int       fontSize = 14;
     bool      wordWrap = true;
     bool      showSidebar = true;
-    bool      showStatusBar = true;
     int       autosaveMs = 800;
     void load()
     {
@@ -19,7 +18,6 @@ struct AppSettings {
         fontSize = s.value("fontSize", fontSize).toInt();
         wordWrap = s.value("wordWrap", wordWrap).toBool();
         showSidebar = s.value("showSidebar", showSidebar).toBool();
-        showStatusBar = s.value("showStatusBar", showStatusBar).toBool();
         autosaveMs = s.value("autosaveMs", autosaveMs).toInt();
     }
     void save() const
@@ -31,7 +29,6 @@ struct AppSettings {
         s.setValue("fontSize", fontSize);
         s.setValue("wordWrap", wordWrap);
         s.setValue("showSidebar", showSidebar);
-        s.setValue("showStatusBar", showStatusBar);
         s.setValue("autosaveMs", autosaveMs);
     }
 };

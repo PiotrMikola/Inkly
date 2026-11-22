@@ -32,6 +32,7 @@ QListWidget::item { color: %3; padding: 9px 10px; margin: 2px 0; border-radius: 
 QListWidget::item:hover { background: %6; }
 QListWidget::item:selected { background: %7; border-left: 3px solid %8; color: %3; }
 QToolBar { background: %1; border: none; spacing: 4px; padding: 4px 8px; }
+QToolBar::handle { background: %5; border-radius: 2px; margin: 6px 3px; }
 QToolButton { background: transparent; color: %3; border: none; border-radius: 6px; padding: 6px 10px; }
 QToolButton:hover { background: %6; }
 QToolButton:pressed { background: %7; }

@@ -47,7 +47,8 @@ template <> constexpr inline auto Inkly::qt_create_metaobjectdata<qt_meta_tag_ZN
         "deleteNote",
         "refreshList",
         "flushSave",
-        "openSettings"
+        "openSettings",
+        "openFiles"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -61,6 +62,8 @@ template <> constexpr inline auto Inkly::qt_create_metaobjectdata<qt_meta_tag_ZN
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'openSettings'
         QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'openFiles'
+        QtMocHelpers::SlotData<void()>(7, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -89,6 +92,7 @@ void Inkly::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         case 2: _t->refreshList(); break;
         case 3: _t->flushSave(); break;
         case 4: _t->openSettings(); break;
+        case 5: _t->openFiles(); break;
         default: ;
         }
     }
@@ -114,14 +118,14 @@ int Inkly::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }

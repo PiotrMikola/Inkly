@@ -871,7 +871,19 @@
             "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtwidgets\\qstatusbar",
             "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtwidgets\\qtoolbar",
             "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtwidgets\\qwidget",
-            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtwidgets\\qapplication"
+            "c:\\users\\admin\\source\\repos\\inkly\\inkly\\fonts.h",
+            "c:\\users\\admin\\source\\repos\\inkly\\inkly\\stdafx.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtwidgets\\qapplication",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qlocalserver",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qlocalserver.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qtnetworkglobal.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtcore\\qtcoreglobal.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qtnetwork-config.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qtnetworkexports.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtcore\\qcompilerdetection.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qabstractsocket.h",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qlocalsocket",
+            "c:\\qt\\6.12.0\\msvc2022_64\\include\\qtnetwork\\qlocalsocket.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

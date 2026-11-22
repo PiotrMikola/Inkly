@@ -1,10 +1,13 @@
 #pragma once
+#include <functional>
 #include "stdafx.h"
 #include "Settings.h"
-
+#include "Fonts.h"
 class SettingsDialog : public QDialog
 {
 public:
+    std::function<void(QWidget*)> onExport;
+    std::function<void(QWidget*)> onImport;
     SettingsDialog(const AppSettings& in, QWidget* parent = nullptr)
         : QDialog(parent), result(in)
     {
@@ -25,11 +28,47 @@ public:
             if (c.isValid()) { result.accent = c; updateAccentButton(); }
             });
         form->addRow("Kolor akcentu", accentBtn);
+        auto* exportBtn = new QPushButton("Eksportuj notatki...");
+        auto* importBtn = new QPushButton("Importuj notatki...");
+        connect(exportBtn, &QPushButton::clicked, this, [this] { if (onExport) onExport(this); });
+        connect(importBtn, &QPushButton::clicked, this, [this] { if (onImport) onImport(this); });
 
+        auto* backupRow = new QHBoxLayout;
+        backupRow->addWidget(exportBtn);
+        backupRow->addWidget(importBtn);
+        form->addRow("Kopia zapasowa", backupRow);
+        auto* addFontBtn = new QPushButton("Dodaj własną czcionkę (*.ttf)");
+        connect(addFontBtn, &QPushButton::clicked, this, [this] {
+            const QStringList files = QFileDialog::getOpenFileNames(this, "Wybierz czcionkę",
+                QString(), "Czcionki TrueType (*.ttf)");
+            if (files.isEmpty()) return;
+
+            QString last;
+            for (const QString& f : files) {
+                const QString fam = installFont(f);
+                if (!fam.isEmpty()) last = fam;
+            }
+            if (last.isEmpty()) {
+                QMessageBox::warning(this, "Błąd", "Nie udało się wczytać czcionki.");
+                return;
+            }
+            fontBox->setFontFilters(fontBox->fontFilters());   // odświeża listę
+            fontBox->setCurrentFont(QFont(last));
+            QMessageBox::information(this, "Czcionka", "Dodano czcionkę: " + last);
+            });
+        form->addRow(addFontBtn);
         fontBox = new QFontComboBox;
-        fontBox->setFontFilters(QFontComboBox::MonospacedFonts);
+        fontBox->setFontFilters(QFontComboBox::AllFonts);
         fontBox->setCurrentFont(QFont(in.fontFamily));
         form->addRow("Czcionka", fontBox);
+
+        monoBox = new QCheckBox("Tylko czcionki o stałej szerokości");
+        connect(monoBox, &QCheckBox::toggled, this, [this](bool on) {
+            const QFont cur = fontBox->currentFont();
+            fontBox->setFontFilters(on ? QFontComboBox::MonospacedFonts : QFontComboBox::AllFonts);
+            fontBox->setCurrentFont(cur);
+            });
+        form->addRow(monoBox);
 
         sizeBox = new QSpinBox;
         sizeBox->setRange(8, 48);
@@ -39,10 +78,6 @@ public:
         wrapBox = new QCheckBox("Zawijanie wierszy");
         wrapBox->setChecked(in.wordWrap);
         form->addRow(wrapBox);
-
-        statusBox = new QCheckBox("Pasek stanu");
-        statusBox->setChecked(in.showStatusBar);
-        form->addRow(statusBox);
 
         saveBox = new QSpinBox;
         saveBox->setRange(200, 10000);
@@ -68,7 +103,6 @@ public:
         s.fontFamily = fontBox->currentFont().family();
         s.fontSize = sizeBox->value();
         s.wordWrap = wrapBox->isChecked();
-        s.showStatusBar = statusBox->isChecked();
         s.autosaveMs = saveBox->value();
         return s;
     }
@@ -85,4 +119,5 @@ private:
     AppSettings result;
     QComboBox* themeBox; QPushButton* accentBtn; QFontComboBox* fontBox;
     QSpinBox* sizeBox; QCheckBox* wrapBox; QCheckBox* statusBox; QSpinBox* saveBox;
+    QCheckBox* monoBox;
 };
